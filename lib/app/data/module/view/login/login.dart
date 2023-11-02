@@ -15,6 +15,14 @@ class _LoginState extends State<Login> {
         child: Scaffold(
           backgroundColor: Colors.white,
           appBar: buildAppBar(),
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                buildLogin(context),
+                reusableText("Or use email account login"),
+              ],
+            ),
+          ),
         ),
       ),
     );
