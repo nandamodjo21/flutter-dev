@@ -183,9 +183,6 @@ Widget forgotPass( ){
 Widget buildButtonLogAndReg(String buttonName, String buttonType, void Function()? func){
   return GestureDetector(
     onTap: ()=> func,
-//       {
-// showToast();
-//     },
     child: Container(
       width: 325.w,
       height: 50.h,
