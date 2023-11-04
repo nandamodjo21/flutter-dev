@@ -55,7 +55,7 @@ class _LoginState extends State<Login> {
                       LoginController(context: context).handleLogin("email");
                     }),
                     buildButtonLogAndReg("Registration","register",(){
-    LoginController(context: context).handleLogin("email");
+                     Navigator.of(context).pushNamed("register");
                     }),
 
                   ],
