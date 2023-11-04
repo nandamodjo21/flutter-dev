@@ -1,15 +1,13 @@
-import 'package:absensi/app/data/module/view/bloc/login_blocs.dart';
-import 'package:absensi/app/data/module/view/home_blocs.dart';
 import 'package:absensi/app/data/module/view/login/login.dart';
-import 'package:absensi/app/data/module/welcome.dart';
+import 'package:absensi/app/data/module/view/register/register.dart';
 import 'package:absensi/app_blocs.dart';
 import 'package:absensi/app_event.dart';
 import 'package:absensi/app_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'app/data/module/splash_screen.dart';
+import 'app/data/module/view/providers/bloc_providers.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,12 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(lazy: false,  create: (context) => HomeBlocs(),),
-        BlocProvider(lazy: false, create: (context) => AppBlocs(),),
-        BlocProvider(create: (context)=> LoginBlocs(),),
-
-      ],
+      providers:AppBlocProviders.allBlocProviders,
       child: ScreenUtilInit(
         builder: (context, child) => MaterialApp(
           debugShowCheckedModeBanner: true,
@@ -37,8 +30,9 @@ class MyApp extends StatelessWidget {
             ),
           ),
           home: const SplashScreen(),
-          routes: {"myHomePage":(context)=>const MyHomePage(),
-            "login":(context)=> const Login(),
+          // routes: {"myHomePage":(context)=>const MyHomePage(),
+            routes: {"login":(context)=> const Login(),
+            "register":(context)=> const Register(),
           },
         ),
       ),
