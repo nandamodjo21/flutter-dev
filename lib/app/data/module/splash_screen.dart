@@ -13,10 +13,10 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     // Atur durasi tampilan splash screen sebelum pindah ke layar utama
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 5), () {
       // Navigasi ke layar utama aplikasi atau halaman yang diinginkan
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => Welcome()),
+        MaterialPageRoute(builder: (context) => const Welcome()),
       );
     });
   }
@@ -30,8 +30,8 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset('assets/images/man.png'),
-            SizedBox(height: 20,),
-            CircularProgressIndicator()
+            const SizedBox(height: 20,),
+            const CircularProgressIndicator()
           ],
         ),
 
